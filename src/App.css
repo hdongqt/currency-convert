@@ -4,12 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #eefaef; */
   padding: 0 4.8rem;
   height: 9.6rem;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
   transition: all 0.3s ease-in-out;
 }
@@ -17,15 +14,15 @@
 .sticky.header {
   position: fixed;
   top: 1.4rem;
-  left: 50%;
   height: 8rem;
   padding-top: 0;
   padding-bottom: 0;
   z-index: 999;
+  left: 2rem;
+  width: auto;
+  right: 2rem;
   box-shadow: 0 0rem 2rem -2px rgb(0 0 0 / 23%);
-  width: 90%;
   border-radius: 2.4rem;
-  transform: translateX(-50%);
 
   backdrop-filter: blur(6px);
   background-color: rgb(255 255 255 / 71%);
@@ -278,9 +275,14 @@
   margin-bottom: 2rem;
 }
 
+.convert-info-error {
+  font-size: 1.4rem;
+}
+
 .convert-info-text {
   text-align: center;
   font-size: 1.4rem;
+  line-height: 1.8rem;
   color: #191717;
   font-style: italic;
 }
@@ -310,6 +312,7 @@
 
 .exchange-rate__note li {
   list-style: inside;
+  line-height: 1.8rem;
 }
 
 .exchange-rate__note li + li {
@@ -382,24 +385,12 @@
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  /* padding: 40px 0px; */
-  margin-top: 40px;
-  margin-bottom: 40px;
-  row-gap: 14px;
+  padding-bottom: 0;
 }
 
 .footer {
   background: #ecebeb;
-  padding: 20px 0px;
-}
-
-.footer-nav {
-  display: flex;
-  gap: 2.4rem;
-  align-items: center;
-  justify-content: end;
+  padding: 40px 0px;
 }
 
 .footer-social {
@@ -410,10 +401,6 @@
   font-size: 1.6rem;
   color: #767676;
   align-items: center;
-}
-
-.footer-social li:first-child {
-  margin-right: auto;
 }
 
 .footer-link:link,
@@ -433,13 +420,28 @@
 .footer-social-link:visited {
   text-decoration: none;
   font-size: 2.4rem;
-  color: #767676;
+  color: #174693;
   transition: all 0.3s;
 }
 
 .footer-social-link:hover,
 .footer-social-link:active {
-  color: #174693;
+  color: #2c6cd2;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-about {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 2.4rem;
+  color: #767676;
+  padding: 0 6.4rem;
+  line-height: 1.6rem;
 }
 
 .contacts {
