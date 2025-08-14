@@ -3,7 +3,7 @@ import { LIST_NAV } from "./../constants/navbar";
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
-  const [isOpenNavMobile, setIsOpenNavMobile] = useState(true);
+  const [isOpenNavMobile, setIsOpenNavMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
