@@ -21,7 +21,7 @@ const formatCurrency = (num) => {
 };
 
 export default function Convert() {
-  const { rates, lastUpdated } = useContext(RatesContext);
+  const { rates, lastUpdated, sectionRefs } = useContext(RatesContext);
 
   const [typeTransaction, setTypeTransaction] = useState(
     OPTIONS_TRANSACTION[0]
@@ -114,7 +114,10 @@ export default function Convert() {
   }, [typeTransaction, convertData.codeForeign]);
 
   return (
-    <section className="container section-convert">
+    <section
+      className="container section-convert"
+      ref={sectionRefs.current["convert"]}
+    >
       <h2 className="heading-secondary">Currency Converter</h2>
       <div className="convert-transaction">
         <p className="convert-transaction-text">Transaction</p>
