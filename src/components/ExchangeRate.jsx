@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { RatesContext } from "../context/RatesContext";
 
 export default function ExchangeRate() {
-  const { rates, lastUpdated } = useContext(RatesContext);
+  const { rates, lastUpdated, sectionRefs } = useContext(RatesContext);
   return (
-    <section className="container">
+    <section className="container" ref={sectionRefs.current["exchange-rate"]}>
       <h2 className="heading-secondary">Exchange rate</h2>
       <div className="exchange-rate">
         <table id="table-rate">

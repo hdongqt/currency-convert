@@ -17,12 +17,11 @@ const OPTIONS_TRANSACTION = [
 ];
 
 const formatCurrency = (num) => {
-  const result = num.toLocaleString("en-US");
-  return isNaN(result) ? 0 : result;
+  return isNaN(num) ? 0 : num.toLocaleString("en-US");
 };
 
 export default function Convert() {
-  const { rates, lastUpdated } = useContext(RatesContext);
+  const { rates, lastUpdated, sectionRefs } = useContext(RatesContext);
 
   const [typeTransaction, setTypeTransaction] = useState(
     OPTIONS_TRANSACTION[0]
@@ -36,14 +35,12 @@ export default function Convert() {
     amountVND: 0,
   });
 
-  useEffect(() => {
-    handleConvert(
-      convertData.isToVND ? convertData.amountForeign : convertData.amountVND
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [typeTransaction, convertData.codeForeign]);
-
   const handleConvert = (amountFrom) => {
+    if (!rates.length) return;
+    amountFrom =
+      amountFrom ??
+      (convertData.isToVND ? convertData.amountForeign : convertData.amountVND);
+
     const currency = rates.find(
       (item) => item.currencyCode === convertData.codeForeign
     );
@@ -80,7 +77,9 @@ export default function Convert() {
   };
 
   const onChangeAmount = (e) => {
-    handleConvert(e.target.value);
+    let value = e.target.value;
+    if (value.length >= 24) value = value.slice(0, 23);
+    handleConvert(value);
   };
 
   const handleChangeOptionCurrency = (e) => {
@@ -109,8 +108,16 @@ export default function Convert() {
     }
   };
 
+  useEffect(() => {
+    handleConvert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typeTransaction, convertData.codeForeign]);
+
   return (
-    <section className="container section-convert">
+    <section
+      className="container section-convert"
+      ref={sectionRefs.current["convert"]}
+    >
       <h2 className="heading-secondary">Currency Converter</h2>
       <div className="convert-transaction">
         <p className="convert-transaction-text">Transaction</p>
