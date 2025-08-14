@@ -114,10 +114,7 @@ export default function Convert() {
   }, [typeTransaction, convertData.codeForeign]);
 
   return (
-    <section
-      className="container section-convert"
-      ref={sectionRefs.current["convert"]}
-    >
+    <section className="container section-convert">
       <h2 className="heading-secondary">Currency Converter</h2>
       <div className="convert-transaction">
         <p className="convert-transaction-text">Transaction</p>
