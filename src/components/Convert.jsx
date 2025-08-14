@@ -21,7 +21,7 @@ const formatCurrency = (num) => {
 };
 
 export default function Convert() {
-  const { rates, lastUpdated, sectionRefs } = useContext(RatesContext);
+  const { rates, lastUpdated } = useContext(RatesContext);
 
   const [typeTransaction, setTypeTransaction] = useState(
     OPTIONS_TRANSACTION[0]
