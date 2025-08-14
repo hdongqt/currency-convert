@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { LIST_NAV } from "./../constants/navbar";
+import { useContext } from "react";
+import { RatesContext } from "./../context/RatesContext";
 
 export default function Header() {
+  const { sectionRefs } = useContext(RatesContext);
   const [isSticky, setIsSticky] = useState(false);
   const [isOpenNavMobile, setIsOpenNavMobile] = useState(false);
 
@@ -15,6 +18,15 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleClickNav = (section) => {
+    const sectionEl = sectionRefs?.current[section]?.current;
+    if (sectionEl) {
+      const top =
+        sectionEl.getBoundingClientRect().top + window.pageYOffset - 120;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   return (
     <header
@@ -53,6 +65,7 @@ export default function Header() {
                 className="main-nav-link"
                 onClick={(e) => {
                   e.preventDefault();
+                  handleClickNav(nav.section);
                 }}
               >
                 {nav.label}

@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { RatesContext } from "../context/RatesContext";
 
 export default function Footer() {
+  const { sectionRefs } = useContext(RatesContext);
   return (
-    <footer className="footer">
+    <footer className="footer" ref={sectionRefs.current["about"]}>
       <div className="container footer-container">
         <div className="footer-content">
           <img
