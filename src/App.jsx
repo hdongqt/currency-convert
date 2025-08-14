@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./queries.css";
 import Header from "./components/Header";
 import Convert from "./components/Convert";
 import ExchangeRate from "./components/ExchangeRate";
@@ -26,7 +26,8 @@ function App() {
       }
     };
     getData();
-  }, []);
+  }, [setLastUpdated, setRates]);
+
   return (
     <div className="App">
       <Header />
@@ -35,7 +36,7 @@ function App() {
           <div className="">
             <div className="hero">
               <div className="hero-text-box">
-                <h1 className="heading-primary">Exchange Rate</h1>
+                <h1 className="heading-primary">Exchange Rates</h1>
                 <p className="hero-description">
                   Get the current exchange rate of different currencies against
                   the Viet Nam
