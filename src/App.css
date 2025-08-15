@@ -28,6 +28,16 @@
   background-color: rgb(255 255 255 / 71%);
 }
 
+.header .header-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
 .logo {
   height: 6.2rem;
 }

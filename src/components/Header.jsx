@@ -89,6 +89,12 @@ export default function Header() {
           />
         )}
       </button>
+      {isOpenNavMobile && (
+        <div
+          className="header-overlay"
+          onClick={() => setIsOpenNavMobile(false)}
+        ></div>
+      )}
     </header>
   );
 }
