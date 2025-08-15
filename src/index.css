@@ -19,6 +19,11 @@ body {
   overflow: hidden;
 }
 
+body.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 *:focus {
   outline: none;
 }
@@ -103,7 +108,7 @@ table th,
 table td {
   padding: 3.2rem;
   text-align: center;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 
 table th {

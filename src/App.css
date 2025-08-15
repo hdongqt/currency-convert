@@ -118,6 +118,33 @@
   padding-top: 2rem;
 }
 
+.convert-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.convert-history-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #1b65ce;
+  transition: all 0.2s linear;
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  font-weight: 500;
+}
+
+.convert-history-btn ion-icon {
+  font-size: 2.4rem;
+}
+
+.convert-history-btn:hover {
+  color: #3a7ae9;
+}
+
 .convert-transaction {
   margin-bottom: 20px;
 }
@@ -452,4 +479,132 @@
 
 .address {
   margin-bottom: 2.4rem;
+}
+
+.history-convert {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1px);
+  transition: all 0.5s;
+  animation: fadeIn 0.16s linear;
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.history-convert__content {
+  background-color: #fff;
+  padding: 2.4rem 4.8rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 19px -1px rgba(130, 127, 127, 0.2);
+  position: relative;
+  max-width: 90rem;
+  width: 100%;
+  max-height: 80vh;
+}
+
+.history-convert__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-convert__close {
+  border: none;
+  background: none;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #333;
+  position: absolute;
+  top: 1.8rem;
+  right: 2.4rem;
+}
+
+.history-convert__close:hover {
+  color: #c91e15;
+}
+
+.history-convert__list {
+  margin-top: 2.4rem;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.history-convert__item {
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1.6rem;
+}
+
+.history-convert__detail {
+  margin-top: 1.6rem;
+}
+
+.history-convert__type {
+  font-weight: 500;
+  color: #000000;
+  display: inline-block;
+  border-radius: 5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+}
+
+.history-convert__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.history-convert__time {
+  color: #282727e0;
+}
+
+.history-convert__amount-from,
+.history-convert__amount-to {
+  font-weight: 500;
+  color: #333;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  background-color: #155b33;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  width: max-content;
+}
+
+.history-convert__amount-from {
+  background-color: #fff7e6;
+  color: #d46b08;
+  border: 1px solid #ffd591;
+}
+
+.history-convert__amount-to {
+  background-color: #f6ffed;
+  color: #389e0d;
+  border: 1px solid #b7eb8f;
 }
