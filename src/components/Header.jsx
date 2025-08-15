@@ -26,6 +26,17 @@ export default function Header() {
         sectionEl.getBoundingClientRect().top + window.pageYOffset - 120;
       window.scrollTo({ top, behavior: "smooth" });
     }
+    if (isOpenNavMobile) {
+      setIsOpenNavMobile(false);
+    }
+  };
+
+  const handleClickLogo = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (isOpenNavMobile) {
+      setIsOpenNavMobile(false);
+    }
   };
 
   return (
@@ -34,13 +45,7 @@ export default function Header() {
         isOpenNavMobile ? " open-nav" : ""
       }`}
     >
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
-      >
+      <a href="#" onClick={handleClickLogo}>
         <img
           src="./images/bronze-logo.png"
           alt="Bronze logo"
@@ -49,17 +54,8 @@ export default function Header() {
       </a>
       <nav className="main-nav">
         <ul className="main-nav-list">
-          <li>
-            <a href="#" className="main-nav-link main-nav-link-logo">
-              <img
-                src="./images/bronze-logo.png"
-                alt="BronzeMagic logo"
-                className="logo-mobile"
-              />
-            </a>
-          </li>
           {LIST_NAV.map((nav) => (
-            <li key={nav.section}>
+            <li key={nav.section} className="main-nav-item">
               <a
                 href={`#${nav.section}`}
                 className="main-nav-link"
