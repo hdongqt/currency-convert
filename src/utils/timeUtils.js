@@ -9,3 +9,5 @@ export const convertTimestampToDateTime = (timestamp) => {
 
   return `${hours}:${minutes}:${seconds} on ${day}/${month}/${year}`;
 };
+
+export const getLocalDateTimeString = () => new Date().toLocaleString();
