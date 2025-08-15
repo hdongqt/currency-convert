@@ -1,27 +1,40 @@
 import { useEffect, useState } from "react";
 
 export default function HistoryConvert({ isOpen, onClose }) {
+  const [histories, setHistories] = useState([]);
+
+  const handleClearHistory = () => {
+    localStorage.removeItem("historyConvert");
+    setHistories([]);
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
+    const handelEscClose = (e) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", handelEscClose);
     return () => {
       document.body.classList.remove("no-scroll");
+      document.removeEventListener("keydown", handelEscClose);
     };
-  }, [isOpen]);
-
-  const [histories, setHistories] = useState([]);
+  }, [isOpen, onClose]);
 
   useEffect(() => {
-    let historyStorage =
+    const historyStorage =
       JSON.parse(localStorage.getItem("historyConvert")) ?? [];
     setHistories(historyStorage);
   }, []);
-  console.log(histories);
+
   return (
-    <div className="history-convert" onClick={onClose}>
+    <div
+      className="history-convert"
+      onClick={(e) => {
+        if (e.target.classList.contains("history-convert")) onClose();
+      }}
+    >
       <div className="history-convert__content">
         <button className="history-convert__close" onClick={onClose}>
           <ion-icon name="close-outline" />
@@ -44,7 +57,7 @@ export default function HistoryConvert({ isOpen, onClose }) {
                 </p>
                 <div className="history-convert__info">
                   <p className="history-convert__convert__description">
-                    <span>
+                    <span className="history-convert__amount-wrap">
                       <span className="history-convert__amount-from">
                         {history.isToVND
                           ? history.amountForeign
@@ -54,7 +67,7 @@ export default function HistoryConvert({ isOpen, onClose }) {
                         ? `${history.currencyNameForeign} (${history.codeForeign})`
                         : " VietNam (VND)"}
                     </span>{" "}
-                    -{" "}
+                    <span className="history-convert__symbol">-</span>{" "}
                     <span className="history-convert__amount-to">
                       {history.isToVND
                         ? history.amountVND
@@ -69,11 +82,22 @@ export default function HistoryConvert({ isOpen, onClose }) {
             ))}
 
           {histories.length === 0 && (
-            <p>
-              <span className="history-convert__type">No history</span>
-            </p>
+            <p className="history-convert__empty">No history convert... </p>
           )}
         </ul>
+        {histories.length > 0 && (
+          <div className="history-convert__clear">
+            <button
+              className="history-convert__btn"
+              onClick={handleClearHistory}
+            >
+              <span className="history-convert__btn-icon">
+                <ion-icon name="trash-outline" />
+              </span>
+              Clear history
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
