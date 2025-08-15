@@ -68,6 +68,14 @@
     padding: 1.2rem 1rem;
     font-size: 1.6rem;
   }
+
+  .history-convert__content {
+    width: 90%;
+  }
+
+  .history-convert__convert__description {
+    line-height: 3.6rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -172,5 +180,29 @@
   .footer-about {
     padding: 0 2.4rem;
     line-height: 1.8rem;
+  }
+
+  .history-convert__content {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .history-convert__convert__description {
+    line-height: 2.2rem;
+    margin-top: 1rem;
+  }
+
+  .history-convert__type {
+    margin-bottom: 0;
+  }
+
+  .history-convert__symbol {
+    display: block;
+    text-align: center;
+    line-height: unset;
+    margin-bottom: 1rem;
+  }
+
+  .history-convert__amount-wrap {
+    line-height: 2.6rem;
   }
 }
