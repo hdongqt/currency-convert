@@ -219,23 +219,25 @@
   position: relative;
 }
 .convert-to__wrap-input::before {
-  content: "VND";
+  content: "";
   position: absolute;
+  height: 3.6rem;
+  width: 5.4rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAgCAMAAABjCgsuAAAAdVBMVEXaJRzaJR3aJhzbLhvcMBvcNBrdOhrePBneQRnfRRjgSBjgSRjgShfgTRfhThfhUxbhVBbmcRLoexHofBHqgxDsjw7skw7tlg3uoAzyuAn0vgj1xAf30Qb64QP65AP65QP76QL87gL88AH9+AD++gD+/gD//wCxOeYMAAAAqElEQVQ4y+3UyQ6DIBAGYFxxFy3uWvf//R+xTRti00Mdkh79TwTmC8wcYIZm2AWORJEmqCpNMAx6QABCC9RArQPMCZhMCrC454dJesMzeZqEvsetn8Bu8JXGPnmS3D7LN3negxiP+rugNO20qr51aFNi87t+ZsSxxuqGmAgKBQoi6IElyxagpwF3R8cNg3fYXRLIV/naZXLNSaAM1CooSYBRT69/6X/gAd2RF2fLz2bYAAAAAElFTkSuQmCC");
   left: 6px;
   top: 50%;
-  font-size: 1.8rem;
-  background-color: #c91e15;
   transform: translateY(-50%);
-  padding: 14px 18px;
-  border-radius: 4px;
   box-shadow: 0 1px 2px rgba(185, 76, 76, 0.2);
   color: #fff;
-  font-weight: 500;
+  border-radius: 4px;
   z-index: 1;
 }
 
 .convert-to__wrap-input .convert-form__input {
-  padding-left: 92px;
+  padding-left: 72px;
 }
 
 .convert-swap {
@@ -607,4 +609,18 @@
   background-color: #f6ffed;
   color: #389e0d;
   border: 1px solid #b7eb8f;
+}
+
+.table-rate__currency {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-rate__currency img {
+  height: 2.4rem;
+}
+
+#convert-select img {
+  height: 2.4rem;
 }
