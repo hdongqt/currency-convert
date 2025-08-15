@@ -157,8 +157,8 @@ select:open::picker-icon {
 option {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  width: 160px;
+  gap: 1rem;
+  width: 140px;
 
   border: 1px solid #ddd;
   background: #fff;

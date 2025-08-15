@@ -9,6 +9,7 @@ import { useContext, useEffect } from "react";
 import { getExchangeRate } from "./API/ExchangeRate";
 import { RatesContext } from "./context/RatesContext";
 import { convertTimestampToDateTime } from "./utils/timeUtils";
+import { FLAG_CURRENCY } from "./data/flag";
 
 function App() {
   const { setRates, setLastUpdated } = useContext(RatesContext);
@@ -19,7 +20,15 @@ function App() {
         const res = await getExchangeRate();
         if (!res.ok) throw new Error("Failed to fetch data");
         const { data } = await res.json();
-        setRates(data.payload);
+        const dataHandled = data
+          ? data.payload.map((item) => {
+              return {
+                ...item,
+                flag: FLAG_CURRENCY?.[item.currencyCode] || "",
+              };
+            })
+          : [];
+        setRates(dataHandled);
         setLastUpdated(convertTimestampToDateTime(data.lastUpdated));
       } catch (error) {
         console.log(error.message);
