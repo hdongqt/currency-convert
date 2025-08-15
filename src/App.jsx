@@ -42,15 +42,13 @@ function App() {
       <Header />
       <main>
         <section className="section-hero">
-          <div className="">
-            <div className="hero">
-              <div className="hero-text-box">
-                <h1 className="heading-primary">Exchange Rates</h1>
-                <p className="hero-description">
-                  Get the current exchange rate of different currencies against
-                  the Viet Nam
-                </p>
-              </div>
+          <div className="hero">
+            <div className="hero-text-box">
+              <h1 className="heading-primary">Exchange Rates</h1>
+              <p className="hero-description">
+                Get the current exchange rate of different currencies against
+                the Viet Nam
+              </p>
             </div>
           </div>
         </section>
