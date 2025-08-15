@@ -24,7 +24,15 @@ export default function ExchangeRate() {
               rates.length > 0 &&
               rates.map((rate) => (
                 <tr key={rate?.currencyCode}>
-                  <td>{rate?.currencyCode}</td>
+                  <td>
+                    <span className="table-rate__currency">
+                      {" "}
+                      {rate?.flag && (
+                        <img src={rate?.flag} alt={rate?.currencyCode} />
+                      )}
+                      {rate?.currencyCode}
+                    </span>
+                  </td>
                   <td>{rate?.currencyName}</td>
                   <td>{rate?.buy}</td>
                   <td>{rate?.transfer}</td>

@@ -202,7 +202,8 @@ export default function Convert() {
                 {rates &&
                   rates.map((rate) => (
                     <option key={rate.currencyCode} value={rate.currencyCode}>
-                      {rate.currencyCode}
+                      {rate.currencyCode}{" "}
+                      <img src={rate.flag} alt={rate.currencyCode} />
                     </option>
                   ))}
               </select>

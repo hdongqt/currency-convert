@@ -47,6 +47,27 @@
     font-size: 1.4rem;
     padding: 2rem 1rem;
   }
+
+  .transfer {
+    grid-template-columns: 1fr;
+  }
+
+  .convert-swap-btn {
+    transform: rotate(90deg);
+  }
+
+  .convert-swap-btn:hover {
+    transform: scale(1.2) rotate(90deg);
+  }
+
+  .convert-transaction-box {
+    flex-wrap: wrap;
+  }
+
+  .convert-transaction-btn {
+    padding: 1.2rem 1rem;
+    font-size: 1.6rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -66,7 +87,6 @@
     padding-right: 1.6rem;
   }
   .exchange-rate {
-    max-width: 100%;
     overflow-x: auto;
   }
 
@@ -123,34 +143,17 @@
     display: block;
   }
 
-  .transfer {
-    grid-template-columns: 1fr;
-  }
-
-  .convert-swap-btn {
-    transform: rotate(90deg);
-  }
-
-  .convert-swap-btn:hover {
-    transform: scale(1.2) rotate(90deg);
-  }
-
-  .convert-transaction-box {
-    flex-wrap: wrap;
-  }
-
-  .convert-transaction-btn {
-    padding: 1.2rem 1rem;
-    font-size: 1.6rem;
-  }
-
   .exchange-rate {
     overflow-x: auto;
     max-width: 100%;
   }
 
-  #table-rate th {
-    width: 100px;
+  table {
+    width: auto;
+  }
+
+  th {
+    white-space: nowrap;
   }
 
   .footer-container {
