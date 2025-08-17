@@ -5,18 +5,21 @@ import Convert from "./components/Convert";
 import ExchangeRate from "./components/ExchangeRate";
 import Footer from "./components/Footer";
 import CountriesSupport from "./components/CountriesSupport";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getExchangeRate } from "./API/ExchangeRate";
 import { RatesContext } from "./context/RatesContext";
 import { convertTimestampToDateTime } from "./utils/timeUtils";
 import { FLAG_CURRENCY } from "./data/flag";
+import PageLoading from "./components/PageLoading";
+import Toast from "./components/Toast";
 
 function App() {
-  const { setRates, setLastUpdated } = useContext(RatesContext);
-
+  const { setRates, setLastUpdated, setLoadingPage } = useContext(RatesContext);
+  const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
     const getData = async () => {
       try {
+        setLoadingPage(true);
         const res = await getExchangeRate();
         if (!res.ok) throw new Error("Failed to fetch data");
         const { data } = await res.json();
@@ -28,14 +31,17 @@ function App() {
               };
             })
           : [];
+        setLoadingPage(false);
+        setErrorMessage("");
         setRates(dataHandled);
         setLastUpdated(convertTimestampToDateTime(data.lastUpdated));
       } catch (error) {
-        console.log(error.message);
+        setErrorMessage(error.message);
+        setLoadingPage(false);
       }
     };
     getData();
-  }, [setLastUpdated, setRates]);
+  }, [setLastUpdated, setLoadingPage, setRates]);
 
   return (
     <div className="App">
@@ -57,6 +63,8 @@ function App() {
         <CountriesSupport />
       </main>
       <Footer />
+      <PageLoading />
+      {errorMessage && <Toast message={errorMessage} type="error" />}
     </div>
   );
 }
