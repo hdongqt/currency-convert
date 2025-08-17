@@ -14,9 +14,18 @@ export default function RatesProvider({ children }) {
 
   const [rates, setRates] = useState([]);
   const [lastUpdated, setLastUpdated] = useState("");
+  const [isLoadingPage, setLoadingPage] = useState(false);
   return (
     <RatesContext.Provider
-      value={{ rates, setRates, lastUpdated, setLastUpdated, sectionRefs }}
+      value={{
+        rates,
+        setRates,
+        lastUpdated,
+        setLastUpdated,
+        sectionRefs,
+        isLoadingPage,
+        setLoadingPage,
+      }}
     >
       {children}
     </RatesContext.Provider>
