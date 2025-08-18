@@ -21,20 +21,23 @@
   left: 2rem;
   width: auto;
   right: 2rem;
-  box-shadow: 0 0rem 2rem -2px rgb(0 0 0 / 23%);
+  border: 1px solid #cccccc78;
   border-radius: 2.4rem;
 
   backdrop-filter: blur(6px);
-  background-color: rgb(255 255 255 / 71%);
+  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(255, 255, 255, 0.666);
 }
 
 .header .header-overlay {
   position: fixed;
-  inset: 0;
+  left: -10px;
+  top: -15px;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-  backdrop-filter: blur(6px);
   z-index: -1;
 }
 

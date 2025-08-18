@@ -205,4 +205,12 @@
   .history-convert__amount-wrap {
     line-height: 2.6rem;
   }
+
+  .heading-primary {
+    font-size: 3rem;
+  }
+
+  .heading-secondary {
+    font-size: 2rem;
+  }
 }
