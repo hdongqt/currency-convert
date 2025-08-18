@@ -513,6 +513,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   transition: all 0.5s;
   animation: fadeIn 0.16s linear;
   transform: scale(1);
@@ -692,6 +693,7 @@
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.251);
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   transition: 0.6s;
 }
 
