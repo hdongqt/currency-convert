@@ -25,7 +25,8 @@ const formatCurrency = (num) => {
 };
 
 export default function Convert() {
-  const { rates, lastUpdated, sectionRefs } = useContext(RatesContext);
+  const { rates, lastUpdated, sectionRefs, isLoadingPage } =
+    useContext(RatesContext);
 
   const [typeTransaction, setTypeTransaction] = useState(
     OPTIONS_TRANSACTION[0]
@@ -116,10 +117,8 @@ export default function Convert() {
     value = formatCurrency(value);
     if (key === "amountForeign") {
       setConvertData({ ...convertData, amountForeign: value });
-      // setAmountForeignValue(value);
       debounceHandleConvert(value, !convertData.isToVND);
     } else {
-      // setAmountVNDValue(value);
       setConvertData({ ...convertData, amountVND: value });
       debounceHandleConvert(value, convertData.isToVND);
     }
@@ -244,6 +243,7 @@ export default function Convert() {
           The exchange rates were updated at <strong>{lastUpdated}</strong>, and
           are for reference only
         </p>
+        {isLoadingPage && <div class="loader-overlay active"></div>}
       </section>
       {isOpenHistory && (
         <HistoryConvert
