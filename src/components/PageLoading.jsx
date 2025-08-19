@@ -7,6 +7,7 @@ export default function PageLoading() {
   return (
     <div className="page-loading__container">
       <div className="page-loading__icon"></div>
+      <div className="page-loading__text">Please wait...</div>
     </div>
   );
 }
