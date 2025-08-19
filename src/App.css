@@ -595,8 +595,17 @@
 .history-convert__empty {
   text-align: center;
   font-size: 1.8rem;
-  color: #333;
+  color: #333333cb;
   margin-top: 2.4rem;
+}
+
+.history-convert__empty__text {
+  margin-bottom: 1.8rem;
+}
+
+.history-convert__empty__icon {
+  font-size: 5.8rem;
+  color: #4158db;
 }
 
 .history-convert__info {

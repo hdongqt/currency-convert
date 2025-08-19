@@ -18,8 +18,12 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {
     const getData = async () => {
-      try {
+      // api can pending 5 seconds, so we need to show loading page
+      // if the api response is faster than 500ms, we will clear the timer and not show loading page
+      let timer = setTimeout(() => {
         setLoadingPage(true);
+      }, 500);
+      try {
         const res = await getExchangeRate();
         if (!res.ok) throw new Error("Failed to fetch data");
         const { data } = await res.json();
@@ -31,12 +35,13 @@ function App() {
               };
             })
           : [];
-        setLoadingPage(false);
         setErrorMessage("");
         setRates(dataHandled);
         setLastUpdated(convertTimestampToDateTime(data.lastUpdated));
       } catch (error) {
         setErrorMessage(error.message);
+      } finally {
+        clearTimeout(timer);
         setLoadingPage(false);
       }
     };
