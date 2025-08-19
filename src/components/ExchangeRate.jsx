@@ -43,8 +43,7 @@ export default function ExchangeRate() {
         </table>
         <ul className="exchange-rate__note">
           <li className="exchange-rate__note-update__time">
-            Exchange rates are last updated at <strong>{lastUpdated}</strong>,
-            and are for reference only
+            Exchange rates are last updated at <strong>{lastUpdated}</strong>
           </li>
           <li>The data is updated every 2 minutes.</li>
           <li>The information is for reference only</li>

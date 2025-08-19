@@ -10,7 +10,6 @@ import { getExchangeRate } from "./API/ExchangeRate";
 import { RatesContext } from "./context/RatesContext";
 import { convertTimestampToDateTime } from "./utils/timeUtils";
 import { FLAG_CURRENCY } from "./data/flag";
-import PageLoading from "./components/PageLoading";
 import Toast from "./components/Toast";
 
 function App() {
@@ -68,7 +67,6 @@ function App() {
         <CountriesSupport />
       </main>
       <Footer />
-      <PageLoading />
       {errorMessage && <Toast message={errorMessage} type="error" />}
     </div>
   );
