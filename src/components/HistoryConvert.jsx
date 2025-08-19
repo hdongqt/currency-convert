@@ -82,7 +82,14 @@ export default function HistoryConvert({ isOpen, onClose }) {
             ))}
 
           {histories.length === 0 && (
-            <p className="history-convert__empty">No history convert... </p>
+            <div className="history-convert__empty">
+              <p className="history-convert__empty__text">
+                No history convert...{" "}
+              </p>
+              <span className="history-convert__empty__icon">
+                <ion-icon name="pulse"></ion-icon>
+              </span>
+            </div>
           )}
         </ul>
         {histories.length > 0 && (
